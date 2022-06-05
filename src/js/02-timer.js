@@ -33,8 +33,9 @@ function onClick() {
   button.disabled = true;
   intervalId = setInterval(() => {
     const delta = new Date(input.value) - new Date();
-    if (delta <= 1000) {
+    if (delta <= 0) {
       clearInterval(intervalId);
+      return;
     }
     const remainTimeObj = convertMs(delta);
     renderDate(remainTimeObj);
